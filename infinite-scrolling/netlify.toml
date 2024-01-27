@@ -1,4 +1,6 @@
 [build]
-  command = "npm run build"
-  publish="infinite-scrolling/dist"
-  base = "infinite-scrolling"
+ base: /opt/build/repo/infinite-scrolling
+ command: npm run build
+ commandOrigin: config
+ publish: /opt/build/repo/infinite-scrolling/infinite-scrolling/dist
+ publishOrigin: config

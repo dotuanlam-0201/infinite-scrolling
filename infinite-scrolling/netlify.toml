@@ -1,1 +1,4 @@
-npm install && npm run build
+[build]
+  command = "npm run build"
+  publish="path-to-react-app/dist"
+  base = "path-to-react-app"

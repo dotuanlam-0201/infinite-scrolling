@@ -1,6 +1,4 @@
 [build]
- base: /opt/build/repo/infinite-scrolling
+ base: infinite-scrolling
  command: npm run build
- commandOrigin: config
- publish: /opt/build/repo/infinite-scrolling/infinite-scrolling/dist
- publishOrigin: config
+ publish: infinite-scrolling/infinite-scrolling/dist

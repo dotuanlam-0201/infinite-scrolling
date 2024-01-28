@@ -21,7 +21,7 @@ const PostsComponent = () => {
         placeholderData: keepPreviousData,
     });
 
-    const posts: Posts = queryPosts.data
+    const posts: Posts = queryPosts.data;
 
     return (
         <MainLayoutComponent>
@@ -29,7 +29,11 @@ const PostsComponent = () => {
                 debounce={1000 * 60}
                 triggerOnNoScroll={false}
                 onBottom={() => {
-                    if (!queryPosts.isFetching && !queryPosts.isRefetching && limit < posts.total) {
+                    if (
+                        !queryPosts.isFetching &&
+                        !queryPosts.isRefetching &&
+                        limit < posts.total
+                    ) {
                         setLimit(limit + 20);
                     }
                 }}
@@ -93,7 +97,6 @@ const PostsComponent = () => {
                         })}
                 </Row>
             </BottomScrollListener>
-            ;
         </MainLayoutComponent>
     );
 };

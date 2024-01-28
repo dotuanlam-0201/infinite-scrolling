@@ -1,12 +1,11 @@
-import { Spin } from 'antd';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AuthenRoute from './AuthenRoute';
 import LoginComponent from './modules/auth/LoginComponent';
 import ErrorBoundary from './modules/error/ErrorComponent';
 import NotFoundComponent from './modules/error/NotFoundComponent';
+import GlobalLoading from './modules/layout/GlobalLoading';
 import PostComponent from './modules/post/PostComponent';
 import PostsComponent from './modules/post/PostsComponent';
-import GlobalLoading from './modules/layout/GlobalLoading';
 
 
 const router = createBrowserRouter([

@@ -6,43 +6,44 @@ import ErrorBoundary from './modules/error/ErrorComponent';
 import NotFoundComponent from './modules/error/NotFoundComponent';
 import PostComponent from './modules/post/PostComponent';
 import PostsComponent from './modules/post/PostsComponent';
+import GlobalLoading from './modules/layout/GlobalLoading';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <AuthenRoute children={<PostsComponent />} />,
-    loader: () => <Spin spinning />,
+    loader: () => <GlobalLoading />,
     errorElement: < ErrorBoundary />,
   },
   {
     path: "/login",
     element: <LoginComponent />,
-    loader: () => <Spin spinning />,
+    loader: () => <GlobalLoading />,
     errorElement: <ErrorBoundary />
   },
   {
     path: "/post",
     element: <AuthenRoute children={<PostsComponent />} /> ,
-    loader: () => <Spin spinning />,
+    loader: () => <GlobalLoading />,
     errorElement: < ErrorBoundary />,
   },
   {
     path: "/post/:id",
     element: <AuthenRoute children={<PostComponent />} /> ,
-    loader: () => <Spin spinning />,
+    loader: () => <GlobalLoading />,
     errorElement: < ErrorBoundary />
   },
   {
     path: '*',
     element: <NotFoundComponent />,
-    loader: () => <Spin spinning />,
+    loader: () => <GlobalLoading />,
   }
 ]);
 
 function App() {
   return (
-    <RouterProvider fallbackElement={<Spin spinning />} router={router} />
+    <RouterProvider fallbackElement={<GlobalLoading />} router={router} />
   )
 }
 

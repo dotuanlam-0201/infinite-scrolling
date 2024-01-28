@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
 import { getUser } from './utils/auth/getUser'
+import GlobalLoading from './modules/layout/GlobalLoading'
 
 interface IProps {
     children: ReactNode
@@ -15,6 +16,10 @@ const AuthenRoute = (props: IProps) => {
         queryFn: () => getUser({ token: token }),
         staleTime: 0,
     })
+
+    if (queryUser.isFetching) {
+        return <GlobalLoading />
+    }
 
     const isError = queryUser.data?.name === 'JsonWebTokenError' || queryUser.data?.message === 'Invalid/Expired Token!' || queryUser.data?.name === 'TokenExpiredError'
 
